@@ -1397,6 +1397,131 @@
             "summary": "Returns the current API service status",
             "uri": "/status",
             "notes": "No parameters are needed"
+        },
+        "Events": {
+            "version": "3",
+            "name": "Events",
+            "httpMethod": "POST",
+            "parameters": {
+                "urlname": {
+                    "location": "uri",
+                    "required": true,
+                    "description": null
+                },
+                "announce": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Wether or not Meetup should announce the event.  True or false, default False."
+                },
+                "duration": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Positive long representiong event duration in miliseconds.  Default: 1080 *3 hours)"
+                },
+                "event_hosts": {
+                    "location": "query",
+                    "required": false,
+                    "description": "string with up to 5 comma separated valid member ids for members who will be hosts of the event.  This defaults to the authenticated member when self_rsvp is true or undefined"
+                },
+                "featured_photo_id": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Positive intege4r representing a numeric identifier for a photo, which must be one associated with this group.  When undefined or 0, no photo is set"
+                },
+                "fee.accepts": {
+                    "location": "query",
+                    "required": false,
+                    "description": "String representing the payment method for the event fee if a fee is hcarged for the event.  May be one of none, case, paypal, wepay"
+                },
+                "fee.amount": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Positive decimal representing the amount of the event fee if a fee is charged for the event. If the group is in the United States, this may not exceed 4999 (for any currency). Otherwise, this may not exceed 1000000 (for any currency). If the event fee is charged with WePay, this must be at least 1.0 USD"
+                },
+                "fee.currency": {
+                    "location": "query",
+                    "required": false,
+                    "description": "String representing the currency for the event fee if a fee is charged for the event. May be one of: AUD,BRL,CAD,CHF,EUR,GBP,INR,JPY,KRW,PLN,RUB,THB,TRY,USD"
+                },
+                "fee.refund.policy": {
+                    "location": "query",
+                    "required": false,
+                    "description": "String setting the refund policy if the event has a fee. May not be longer than 250 characters."
+                },
+                "guest_limit": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Positive integer representing the number of guests that members may include in their RSVP, 0 inclusive. This defaults to 2."
+                },
+                "how_to_find_us": {
+                    "location": "query",
+                    "required": true,
+                    "description": "String setting the description for the location of the host(s) at the event venue."
+                },
+                "lat": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Float representing adjusted venue latitude. This can only be set if lon is included as well."
+                },
+                "lon" : {
+                    "location": "query",
+                    "required": false,
+                    "description": "Float representing adjusted venue longitude. This can only be set if lat is included as well."
+                },
+                "name": {
+                    "location": "query",
+                    "required": true,
+                    "description": "String setting the name of the event. Must be at least 1 character and may not be longer than 80 characters."
+                },
+                "publish_status":{
+                    "location": "query",
+                    "required": false,
+                    "description": "String indicating whether an event will be published to the group or as a draft visible only to the leadership team. May be one of 'draft' or 'published'. This defaults to 'published'"
+                },
+                "question": {
+                    "location": "query",
+                    "required": false,
+                    "description": "String setting the RSVP survey question for the event. May not be longer than 250 characters."
+                },
+                "rsvp_close_time": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Positive long representing the time before which members will be allowed to RSVP to the event in milliseconds since the epoch. This can only be set if there is a start time for the event. This defaults to no RSVP close time restriction."
+                },
+                "rsvp_limit": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Positive integer representing total number of RSVP slots available for the event. When undefined or defined as 0, there will be no set limit."
+                },
+                "rsvp_open_time": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Positive long representing the time after which members will be allowed to RSVP to the event in milliseconds since the epoch. This can only be set if there is a start time for the event. This defaults to no RSVP open time restriction."
+                },
+                "self_rsvp": {
+                    "location": "query",
+                    "required": false,
+                    "description": "Boolean value indicating whether the authenticated member will be RSVP'd to the event upon creation. This defaults to true."
+                },
+                "time": {
+                    "location": "query",
+                    "required": true,
+                    "description": "Positive long representing event start time in milliseconds since the epoch."
+                },
+                "venue_id": {
+                    "location": "query",
+                    "required": true,
+                    "description": "Positive integer representing a numeric identifier for a venue."
+                },
+                "venue_visibility": {
+                    "lcoation": "query",
+                    "required": false,
+                    "description": "String indicating whether the event venue and host location description will be visible to non-members of the hosting group. May be one of 'public' or 'members'. This defaults to 'public'."
+                }
+            },
+            "uri": "/{urlname}/events",
+            "summary": "Creates a new event",
+            "notes": "This does a thing"
         }
     }
 }

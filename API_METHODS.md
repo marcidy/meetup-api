@@ -45,6 +45,7 @@
     POST /:urlname/events/:id/watchlist
     DELETE /:urlname/events/:id/watchlist
     GET /:urlname/events
+    POST/:urlname/events
 
 ##v2 events
 
